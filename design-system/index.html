@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NIL Optic — Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --red: #DC2626;
+      --red-50: rgba(220,38,38,0.05);
+      --red-10: rgba(220,38,38,0.1);
+      --red-20: rgba(220,38,38,0.2);
+      --red-glow: rgba(220,38,38,0.35);
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+      --z50: #FAFAFA; --z100: #F4F4F5; --z200: #E4E4E7; --z300: #D4D4D8;
+      --z400: #A1A1AA; --z500: #71717A; --z600: #52525B; --z700: #3F3F46;
+      --z800: #27272A; --z900: #18181B; --z950: #0F0F11;
+      --sidebar-w: 280px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { font-size:15px; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--black);
+      color: var(--z200);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      position: sticky; top:0; z-index:100;
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 24px;
+      background: var(--z950);
+      border-bottom: 1px solid var(--z800);
+      backdrop-filter: blur(12px);
+    }
+    .header-logo {
+      width:32px; height:32px; background:#FF4B3A; border-radius:6px;
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .header-title {
+      font-size:16px; font-weight:700; color:var(--white); letter-spacing:-0.3px;
+    }
+    .header-title span { color:var(--red); }
+    .header-badge {
+      font-size:9px; font-weight:700; color:var(--red); background:var(--red-10);
+      padding:3px 8px; border-radius:4px; letter-spacing:0.8px; text-transform:uppercase;
+    }
+    .header-search {
+      margin-left:auto; position:relative; width:240px;
+    }
+    .header-search input {
+      width:100%; padding:7px 12px 7px 32px; border-radius:6px;
+      background:var(--z900); border:1px solid var(--z700); color:var(--z200);
+      font-family:inherit; font-size:12px; outline:none; transition:border 0.2s;
+    }
+    .header-search input:focus { border-color:var(--red); }
+    .header-search svg {
+      position:absolute; left:10px; top:50%; transform:translateY(-50%);
+      width:14px; height:14px; stroke:var(--z500);
+    }
+    .hamburger {
+      display:none; background:none; border:none; cursor:pointer; padding:4px;
+    }
+    .hamburger svg { width:22px; height:22px; stroke:var(--z300); }
+
+    /* ── LAYOUT ── */
+    .layout { display:flex; flex:1; min-height:0; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width:var(--sidebar-w); flex-shrink:0; background:var(--z950);
+      border-right:1px solid var(--z800); overflow-y:auto; padding:16px 0;
+      position:sticky; top:57px; height:calc(100vh - 57px);
+    }
+    .sidebar::-webkit-scrollbar { width:4px; }
+    .sidebar::-webkit-scrollbar-track { background:transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background:var(--z700); border-radius:2px; }
+    .nav-group { margin-bottom:8px; }
+    .nav-group-label {
+      font-size:10px; font-weight:700; color:var(--z500); letter-spacing:0.8px;
+      text-transform:uppercase; padding:8px 20px 4px; user-select:none;
+    }
+    .nav-item {
+      display:block; padding:6px 20px 6px 28px; font-size:12.5px; font-weight:400;
+      color:var(--z400); text-decoration:none; cursor:pointer;
+      border-left:3px solid transparent; transition:all 0.15s;
+    }
+    .nav-item:hover { color:var(--z200); background:var(--z900); }
+    .nav-item.active {
+      color:var(--white); font-weight:600;
+      border-left-color:var(--red); background:var(--red-50);
+    }
+    .nav-count {
+      font-size:9px; color:var(--z600); font-family:'JetBrains Mono',monospace;
+      margin-left:4px;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      flex:1; min-width:0; padding:32px 48px 64px;
+      max-width:920px;
+    }
+    .content-loading {
+      display:flex; align-items:center; justify-content:center;
+      height:200px; color:var(--z500); font-size:13px;
+    }
+    .content-error {
+      color:var(--red); background:var(--red-50); border:1px solid var(--red-20);
+      border-radius:8px; padding:16px 20px; font-size:13px;
+    }
+
+    /* ── MARKDOWN STYLES ── */
+    .md h1 {
+      font-size:28px; font-weight:800; color:var(--white);
+      letter-spacing:-0.5px; margin:0 0 8px; line-height:1.2;
+      padding-bottom:12px; border-bottom:2px solid var(--red);
+    }
+    .md h2 {
+      font-size:20px; font-weight:700; color:var(--white);
+      letter-spacing:-0.3px; margin:32px 0 12px; line-height:1.3;
+      padding-bottom:8px; border-bottom:1px solid var(--z800);
+    }
+    .md h3 {
+      font-size:16px; font-weight:700; color:var(--z100);
+      margin:24px 0 8px;
+    }
+    .md h4 { font-size:14px; font-weight:700; color:var(--z200); margin:20px 0 6px; }
+    .md h5 { font-size:12px; font-weight:700; color:var(--z300); margin:16px 0 4px; text-transform:uppercase; letter-spacing:0.5px; }
+    .md p { margin:8px 0; line-height:1.65; color:var(--z300); }
+    .md strong { color:var(--white); font-weight:600; }
+    .md em { color:var(--z300); }
+    .md a { color:var(--red); text-decoration:none; font-weight:500; }
+    .md a:hover { text-decoration:underline; }
+    .md ul, .md ol { margin:8px 0 8px 24px; color:var(--z300); }
+    .md li { margin:4px 0; line-height:1.6; }
+    .md li::marker { color:var(--z600); }
+    .md hr { border:none; border-top:1px solid var(--z800); margin:24px 0; }
+    .md blockquote {
+      border-left:3px solid var(--red); padding:8px 16px; margin:12px 0;
+      background:var(--red-50); border-radius:0 6px 6px 0;
+      color:var(--z300); font-style:italic;
+    }
+    .md img { max-width:100%; border-radius:8px; margin:12px 0; }
+
+    /* Tables */
+    .md table {
+      width:100%; border-collapse:collapse; margin:16px 0; font-size:12.5px;
+    }
+    .md thead th {
+      background:var(--z900); color:var(--z100); font-weight:600;
+      padding:10px 12px; text-align:left; border-bottom:2px solid var(--red);
+      font-size:11px; text-transform:uppercase; letter-spacing:0.3px;
+    }
+    .md tbody td {
+      padding:8px 12px; border-bottom:1px solid var(--z800); color:var(--z300);
+      vertical-align:top;
+    }
+    .md tbody tr:hover { background:var(--z950); }
+    .md tbody tr:nth-child(even) { background:rgba(255,255,255,0.015); }
+
+    /* Code blocks */
+    .md code {
+      font-family:'JetBrains Mono',monospace; font-size:12px;
+      background:var(--z900); color:var(--red); padding:2px 6px;
+      border-radius:4px;
+    }
+    .md pre {
+      background:var(--z950); border:1px solid var(--z800); border-radius:8px;
+      padding:16px 20px; margin:16px 0; overflow-x:auto;
+      line-height:1.5;
+    }
+    .md pre code {
+      background:none; color:var(--z300); padding:0; font-size:11.5px;
+      white-space:pre;
+    }
+
+    /* Checkboxes */
+    .md input[type="checkbox"] {
+      accent-color:var(--red); margin-right:6px; transform:scale(1.1);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding:16px 24px; text-align:center;
+      border-top:1px solid var(--z800); color:var(--z600); font-size:11px;
+    }
+    .footer span { color:var(--red); font-weight:600; }
+
+    /* ── SEARCH RESULTS ── */
+    .search-results {
+      position:absolute; top:100%; left:0; right:0; margin-top:4px;
+      background:var(--z900); border:1px solid var(--z700); border-radius:8px;
+      max-height:300px; overflow-y:auto; display:none; z-index:200;
+      box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    }
+    .search-results.open { display:block; }
+    .search-result {
+      padding:8px 14px; cursor:pointer; font-size:12px; color:var(--z300);
+      border-bottom:1px solid var(--z800);
+    }
+    .search-result:hover { background:var(--red-50); color:var(--white); }
+    .search-result-group { font-size:9px; color:var(--z500); text-transform:uppercase; letter-spacing:0.5px; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      font-size:11px; color:var(--z500); margin-bottom:16px;
+      font-family:'JetBrains Mono',monospace;
+    }
+    .breadcrumb a { color:var(--z400); text-decoration:none; }
+    .breadcrumb a:hover { color:var(--red); }
+    .breadcrumb .sep { margin:0 6px; color:var(--z700); }
+
+    /* ── MOBILE ── */
+    @media (max-width:768px) {
+      .header-search { width:160px; }
+      .sidebar {
+        position:fixed; left:-100%; top:57px; width:85vw; max-width:320px;
+        height:calc(100vh - 57px); z-index:200;
+        transition:left 0.25s ease; background:var(--z950);
+      }
+      .sidebar.open { left:0; }
+      .sidebar-overlay {
+        display:none; position:fixed; inset:0; top:57px;
+        background:rgba(0,0,0,0.6); z-index:199;
+      }
+      .sidebar-overlay.open { display:block; }
+      .hamburger { display:block; }
+      .content { padding:24px 16px 48px; }
+      .md h1 { font-size:22px; }
+      .md h2 { font-size:17px; }
+      .md table { font-size:11px; }
+      .md pre { padding:12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="header-logo">
+      <svg viewBox="0 0 64 64" width="20" height="20" fill="none"><rect x="12" y="12" width="40" height="40" rx="7" fill="#F8FAFC"/><circle cx="32" cy="32" r="5.5" fill="#FF001A"/></svg>
+    </div>
+    <div class="header-title">NIL <span>Optic</span></div>
+    <div class="header-badge">Design System</div>
+    <div class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Search docs..." autocomplete="off" />
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </header>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="sidebar" role="navigation" aria-label="Design system navigation">
+      <div class="nav-group">
+        <a class="nav-item active" data-file="README.md">Overview</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">00 Brand</div>
+        <a class="nav-item" data-file="00_Brand/brand-guidelines.md">Brand Guidelines</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">01 Foundations</div>
+        <a class="nav-item" data-file="01_Foundations/color-system.md">Color System</a>
+        <a class="nav-item" data-file="01_Foundations/typography.md">Typography</a>
+        <a class="nav-item" data-file="01_Foundations/spacing-layout.md">Spacing & Layout</a>
+        <a class="nav-item" data-file="01_Foundations/motion.md">Motion</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">02 Primitives</div>
+        <a class="nav-item" data-file="02_Primitives/primitives.md">Primitives</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">03 Components</div>
+        <a class="nav-item" data-file="03_Components/components.md">Components</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">04 Patterns</div>
+        <a class="nav-item" data-file="04_Patterns/patterns.md">Patterns</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">05 Features <span class="nav-count">7</span></div>
+        <a class="nav-item" data-file="05_Features/features.md">Core Features</a>
+        <a class="nav-item" data-file="05_Features/compliance.md">Compliance</a>
+        <a class="nav-item" data-file="05_Features/messaging-huddles.md">Messaging & Huddles</a>
+        <a class="nav-item" data-file="05_Features/notifications.md">Notifications</a>
+        <a class="nav-item" data-file="05_Features/sports-directory.md">Sports Directory</a>
+        <a class="nav-item" data-file="05_Features/tournaments.md">Tournaments</a>
+        <a class="nav-item" data-file="05_Features/transfer-portal.md">Transfer Portal</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">06 Templates <span class="nav-count">5</span></div>
+        <a class="nav-item" data-file="06_Templates/templates.md">Core Templates</a>
+        <a class="nav-item" data-file="06_Templates/admin-template.md">Admin Dashboard</a>
+        <a class="nav-item" data-file="06_Templates/role-templates-extended.md">Role Templates</a>
+        <a class="nav-item" data-file="06_Templates/onboarding-wizard-template.md">Onboarding Wizard</a>
+        <a class="nav-item" data-file="06_Templates/internal-ops-templates.md">Internal Ops</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">07 Marketing</div>
+        <a class="nav-item" data-file="07_Marketing/marketing.md">Marketing</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">08 Documentation</div>
+        <a class="nav-item" data-file="08_Documentation/documentation.md">Documentation</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">09 Intelligence</div>
+        <a class="nav-item" data-file="09_Intelligence/ux-direction.md">UX Direction</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">10 Onboarding <span class="nav-count">3</span></div>
+        <a class="nav-item" data-file="10_Onboarding/onboarding-system.md">Onboarding System</a>
+        <a class="nav-item" data-file="10_Onboarding/onboarding-wizard-template.md">Wizard Template</a>
+        <a class="nav-item" data-file="10_Onboarding/flows-by-persona.md">Flows by Persona</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">11 Support</div>
+        <a class="nav-item" data-file="11_Support/support-system.md">Support System</a>
+      </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="content" id="content" role="main">
+      <div class="content-loading" id="loadingState">Loading...</div>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>NIL Optic</span> Design System &middot; Performance-first NIL intelligence for every program &middot; 2026
+  </footer>
+
+  <script>
+    // ── NAV DATA (for search) ──
+    const NAV_ITEMS = [
+      { file:'README.md', label:'Overview', group:'Design System' },
+      { file:'00_Brand/brand-guidelines.md', label:'Brand Guidelines', group:'00 Brand' },
+      { file:'01_Foundations/color-system.md', label:'Color System', group:'01 Foundations' },
+      { file:'01_Foundations/typography.md', label:'Typography', group:'01 Foundations' },
+      { file:'01_Foundations/spacing-layout.md', label:'Spacing & Layout', group:'01 Foundations' },
+      { file:'01_Foundations/motion.md', label:'Motion', group:'01 Foundations' },
+      { file:'02_Primitives/primitives.md', label:'Primitives', group:'02 Primitives' },
+      { file:'03_Components/components.md', label:'Components', group:'03 Components' },
+      { file:'04_Patterns/patterns.md', label:'Patterns', group:'04 Patterns' },
+      { file:'05_Features/features.md', label:'Core Features', group:'05 Features' },
+      { file:'05_Features/compliance.md', label:'Compliance', group:'05 Features' },
+      { file:'05_Features/messaging-huddles.md', label:'Messaging & Huddles', group:'05 Features' },
+      { file:'05_Features/notifications.md', label:'Notifications', group:'05 Features' },
+      { file:'05_Features/sports-directory.md', label:'Sports Directory', group:'05 Features' },
+      { file:'05_Features/tournaments.md', label:'Tournaments', group:'05 Features' },
+      { file:'05_Features/transfer-portal.md', label:'Transfer Portal', group:'05 Features' },
+      { file:'06_Templates/templates.md', label:'Core Templates', group:'06 Templates' },
+      { file:'06_Templates/admin-template.md', label:'Admin Dashboard', group:'06 Templates' },
+      { file:'06_Templates/role-templates-extended.md', label:'Role Templates', group:'06 Templates' },
+      { file:'06_Templates/onboarding-wizard-template.md', label:'Onboarding Wizard', group:'06 Templates' },
+      { file:'06_Templates/internal-ops-templates.md', label:'Internal Ops', group:'06 Templates' },
+      { file:'07_Marketing/marketing.md', label:'Marketing', group:'07 Marketing' },
+      { file:'08_Documentation/documentation.md', label:'Documentation', group:'08 Documentation' },
+      { file:'09_Intelligence/ux-direction.md', label:'UX Direction', group:'09 Intelligence' },
+      { file:'10_Onboarding/onboarding-system.md', label:'Onboarding System', group:'10 Onboarding' },
+      { file:'10_Onboarding/onboarding-wizard-template.md', label:'Wizard Template', group:'10 Onboarding' },
+      { file:'10_Onboarding/flows-by-persona.md', label:'Flows by Persona', group:'10 Onboarding' },
+      { file:'11_Support/support-system.md', label:'Support System', group:'11 Support' },
+    ];
+
+    const content = document.getElementById('content');
+    const loading = document.getElementById('loadingState');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    let currentFile = null;
+
+    // ── CONFIGURE MARKED ──
+    marked.setOptions({ gfm:true, breaks:false });
+
+    // ── LOAD MARKDOWN ──
+    async function loadFile(file) {
+      currentFile = file;
+      window.location.hash = file;
+
+      // Update active nav
+      document.querySelectorAll('.nav-item').forEach(el => {
+        el.classList.toggle('active', el.dataset.file === file);
+      });
+
+      // Show loading
+      content.innerHTML = '<div class="content-loading">Loading...</div>';
+
+      try {
+        const res = await fetch(file);
+        if (!res.ok) throw new Error(`Failed to load ${file} (${res.status})`);
+        const md = await res.text();
+
+        // Build breadcrumb
+        const parts = file.replace('.md','').split('/');
+        let breadcrumb = '<div class="breadcrumb"><a href="#README.md">Design System</a>';
+        if (parts.length > 1) {
+          breadcrumb += `<span class="sep">/</span><span>${parts[0]}</span>`;
+        }
+        breadcrumb += '</div>';
+
+        content.innerHTML = breadcrumb + '<div class="md">' + marked.parse(md) + '</div>';
+        content.scrollTop = 0;
+        window.scrollTo(0, 0);
+      } catch(e) {
+        content.innerHTML = `<div class="content-error">Error: ${e.message}</div>`;
+      }
+
+      // Close mobile sidebar
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebarOverlay').classList.remove('open');
+    }
+
+    // ── NAV CLICKS ──
+    document.querySelectorAll('.nav-item').forEach(el => {
+      el.addEventListener('click', () => loadFile(el.dataset.file));
+    });
+
+    // ── HASH ROUTING ──
+    function handleHash() {
+      const hash = window.location.hash.slice(1);
+      if (hash && NAV_ITEMS.some(n => n.file === hash)) {
+        loadFile(hash);
+      } else {
+        loadFile('README.md');
+      }
+    }
+    window.addEventListener('hashchange', handleHash);
+
+    // ── SEARCH ──
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.toLowerCase().trim();
+      if (!q) { searchResults.classList.remove('open'); return; }
+      const matches = NAV_ITEMS.filter(n =>
+        n.label.toLowerCase().includes(q) || n.group.toLowerCase().includes(q) || n.file.toLowerCase().includes(q)
+      );
+      if (!matches.length) {
+        searchResults.innerHTML = '<div class="search-result" style="color:var(--z500);">No results</div>';
+      } else {
+        searchResults.innerHTML = matches.map(m =>
+          `<div class="search-result" onclick="loadFile('${m.file}');searchInput.value='';searchResults.classList.remove('open');">
+            <div class="search-result-group">${m.group}</div>
+            <div>${m.label}</div>
+          </div>`
+        ).join('');
+      }
+      searchResults.classList.add('open');
+    });
+    searchInput.addEventListener('blur', () => setTimeout(() => searchResults.classList.remove('open'), 200));
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { searchInput.value = ''; searchResults.classList.remove('open'); }
+    });
+
+    // ── KEYBOARD SHORTCUT ──
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+
+    // ── MOBILE SIDEBAR ──
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('open');
+    }
+
+    // ── INIT ──
+    handleHash();
+  </script>
+</body>
+</html>

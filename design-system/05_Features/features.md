@@ -1,0 +1,197 @@
+# NIL Feature Components
+
+Last updated: 2026-03-01
+
+---
+
+## Overview
+
+Feature components are domain-specific to NIL Optic. They combine foundations, primitives, and components into product-specific experiences. These are the surfaces that differentiate NIL Optic from generic dashboards.
+
+---
+
+## NIL Valuation Engine
+
+The valuation engine is the core product differentiator. It provides AI-driven athlete valuations based on social media, athletic performance, market demand, and comparable deals.
+
+### Valuation Hero Card
+
+```
+┌──────────────────────────────────────────────────┐
+│                                                  │
+│  [Athlete Photo]     Jordan Smith                │
+│   80px circle        University of Georgia       │
+│   red border         Football · WR · Junior      │
+│                                                  │
+│  ────────────────────────────────────────────── │
+│                                                  │
+│  NIL VALUATION                                   │  ← Label SM, zinc-400
+│                                                  │
+│  $2.4M                                          │  ← Display XL, red
+│                                                  │
+│  ▲ +16.7% (30d)     Confidence: 87%            │  ← Data, green  |  Ring
+│                                                  │
+│  Updated 2 hours ago                             │  ← Caption, zinc-500
+│                                                  │
+│  [View Full Report]  [Add to Pipeline]           │
+│                                                  │
+└──────────────────────────────────────────────────┘
+```
+
+### Valuation Breakdown
+
+```
+┌──────────────────────────────────────────────────┐
+│  VALUATION FACTORS                               │
+│                                                  │
+│  Social Media Impact          ████████░░  42%    │
+│  Athletic Performance         ██████░░░░  31%    │
+│  Market Demand                ███░░░░░░░  15%    │
+│  Comparable Deals             ██░░░░░░░░  12%    │
+│                                                  │
+│  ──────────────────────────────────────────────  │
+│                                                  │
+│  Stat Weights                                    │
+│  Instagram: 2.1M  |  Twitter: 890K  |  TikTok: 3.4M │
+│  Passing Yards: 3,847  |  TDs: 32  |  QBR: 87.4    │
+│                                                  │
+└──────────────────────────────────────────────────┘
+```
+
+---
+
+## Predictor
+
+AI-powered prediction engine for NIL market trends, athlete valuation trajectories, and deal outcomes.
+
+### Prediction Card
+
+```
+┌──────────────────────────────────────────────────┐
+│  🎯 PREDICTION                                   │
+│                                                  │
+│  J. Smith valuation will increase                │  ← Body, white
+│  15-20% over the next 90 days                    │
+│                                                  │
+│  Confidence: ████████░░ 84%                     │
+│                                                  │
+│  Key Drivers:                                    │
+│  • Transfer portal entry (+8% avg impact)        │  ← Body SM
+│  • Bowl game performance window                  │
+│  • Rising social engagement trend                │
+│                                                  │
+│  Predicted Range: $2.8M – $3.1M                 │  ← Data LG, red
+│                                                  │
+└──────────────────────────────────────────────────┘
+```
+
+### Trend Chart
+
+```
+┌──────────────────────────────────────────────────┐
+│  VALUATION TREND                 [30d] [90d] [1y]│
+│                                                  │
+│  $3M ─ ─ ─ ─ ─ ─ ─ ─ ╌╌╌╌╌╌╌╌  ← Predicted   │
+│                    ╱╱╱                            │
+│  $2M ─ ─ ─ ─ ─ ─╱─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  │
+│              ╱╱╱╱                                 │
+│  $1M ─ ╱╱╱╱─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  │
+│    ╱╱╱╱                                          │
+│  $0 ─────────────────────────────────────────── │
+│     Sep  Oct  Nov  Dec  Jan  Feb  Mar  Apr  May  │
+│                                                  │
+│  ━━ Actual    ╌╌ Predicted    ░░ Confidence Band │
+└──────────────────────────────────────────────────┘
+```
+
+---
+
+## Roster Builder
+
+Tool for athletic departments and agents to build, compare, and value hypothetical rosters.
+
+### Roster Card
+
+```
+┌──────────────────────────────────────────────────┐
+│  MY ROSTER: "2026 Football Targets"    [Edit]    │
+│                                                  │
+│  12 Athletes  |  Total NIL Value: $18.4M        │
+│                                                  │
+│  ┌────┬──────────┬────────┬────────┬──────────┐ │
+│  │ #  │ Athlete  │ Pos    │ Value  │ Status   │ │
+│  ├────┼──────────┼────────┼────────┼──────────┤ │
+│  │ 1  │ J.Smith  │ WR     │ $2.4M  │ ●Target  │ │
+│  │ 2  │ A.Jones  │ QB     │ $3.1M  │ ●Active  │ │
+│  │ 3  │ M.Davis  │ LB     │ $1.2M  │ ●Signed  │ │
+│  └────┴──────────┴────────┴────────┴──────────┘ │
+│                                                  │
+│  [+ Add Athlete]  [Compare]  [Export]            │
+└──────────────────────────────────────────────────┘
+```
+
+---
+
+## Recruiting CRM
+
+Pipeline management for tracking athlete interest, communication, and deal progression.
+
+### Pipeline Board (Kanban)
+
+```
+┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
+│ PROSPECT │ │ OUTREACH │ │ NEGOTIATE│ │ SIGNED   │
+│ (8)      │ │ (5)      │ │ (3)      │ │ (12)     │
+├──────────┤ ├──────────┤ ├──────────┤ ├──────────┤
+│ ┌──────┐ │ │ ┌──────┐ │ │ ┌──────┐ │ │ ┌──────┐ │
+│ │Smith │ │ │ │Jones │ │ │ │Davis │ │ │ │Brown │ │
+│ │$2.4M │ │ │ │$1.8M │ │ │ │$3.1M │ │ │ │$950K │ │
+│ │FB·WR │ │ │ │FB·QB │ │ │ │BK·PG │ │ │ │BB·P  │ │
+│ └──────┘ │ │ └──────┘ │ │ └──────┘ │ │ └──────┘ │
+│ ┌──────┐ │ │ ┌──────┐ │ │          │ │ ┌──────┐ │
+│ │Lee   │ │ │ │Park  │ │ │          │ │ │Wang  │ │
+│ │$1.1M │ │ │ │$2.0M │ │ │          │ │ │$1.5M │ │
+│ └──────┘ │ │ └──────┘ │ │          │ │ └──────┘ │
+└──────────┘ └──────────┘ └──────────┘ └──────────┘
+```
+
+---
+
+## Deal Management
+
+### Deal Detail
+
+```
+┌──────────────────────────────────────────────────┐
+│  Nike Endorsement Deal                           │
+│  ────────────────────────────────────────────── │
+│                                                  │
+│  Value          Status        Duration           │
+│  $50,000        ● Active      12 months          │
+│                                                  │
+│  Athlete        Brand         Category           │
+│  J. Smith       Nike, Inc.    Apparel            │
+│                                                  │
+│  ──────────────────────────────────────────────  │
+│                                                  │
+│  MILESTONES                                      │
+│  ✓ Contract signed           Feb 1, 2026         │
+│  ✓ First deliverable         Feb 15, 2026        │
+│  ○ Mid-term review           May 1, 2026         │
+│  ○ Final deliverable         Jan 31, 2027        │
+│                                                  │
+└──────────────────────────────────────────────────┘
+```
+
+---
+
+## Role-Specific Dashboards
+
+### Athletic Department View
+Focus: roster management, compliance, budget tracking, team valuations
+
+### Agent View
+Focus: client portfolio, deal pipeline, market opportunities, comparables
+
+### Athlete View
+Focus: personal valuation, deal history, social media impact, earnings
