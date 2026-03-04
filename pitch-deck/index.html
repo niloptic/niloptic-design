@@ -95,6 +95,22 @@
       0%, 100% { box-shadow:0 0 0 rgba(220,38,38,0); }
       50% { box-shadow:0 0 20px rgba(220,38,38,0.15); }
     }
+    @keyframes ringExpand {
+      from { opacity:0; transform:scale(0.55); }
+      to { opacity:1; transform:scale(1); }
+    }
+    @keyframes ringGlow {
+      0%, 100% { box-shadow:0 0 30px rgba(220,38,38,0.1); }
+      50% { box-shadow:0 0 50px rgba(220,38,38,0.25), 0 0 80px rgba(220,38,38,0.08); }
+    }
+    @keyframes livePulse {
+      0%, 100% { box-shadow:0 0 0 0 rgba(220,38,38,0.6); }
+      50% { box-shadow:0 0 0 6px rgba(220,38,38,0); }
+    }
+    @keyframes valueShimmer {
+      0%, 100% { text-shadow:0 0 0 transparent; }
+      50% { text-shadow:0 0 14px rgba(220,38,38,0.35); }
+    }
 
     /* Staggered entrance for slide children */
     .slide.active .label { animation:fadeUp 0.5s ease both; }
@@ -116,7 +132,17 @@
     .slide.active .mbox:nth-child(2) { animation-delay:0.15s; }
     .slide.active .mbox:nth-child(3) { animation-delay:0.2s; }
     .slide.active .mbox:nth-child(4) { animation-delay:0.25s; }
-    .slide.active .tam { animation:scaleIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s both; }
+    .slide.active .tam { animation:fadeIn 0.3s ease 0.2s both; }
+    .slide.active .tam .ring.o { animation:ringExpand 0.9s cubic-bezier(0.22,1,0.36,1) 0.4s both; }
+    .slide.active .tam .ring.m { animation:ringExpand 0.8s cubic-bezier(0.22,1,0.36,1) 0.65s both; }
+    .slide.active .tam .ring.i { animation:ringExpand 0.7s cubic-bezier(0.22,1,0.36,1) 0.9s both; }
+    .slide.active .tam .ring.o .tag { animation:fadeUp 0.5s ease 0.95s both; }
+    .slide.active .tam .ring.m .tag { animation:fadeUp 0.5s ease 1.15s both; }
+    .slide.active .tam .ring.i .tag { animation:fadeUp 0.5s ease 1.4s both; }
+    .slide.active .badge-row .sport-badge { animation:fadeUp 0.4s ease both; }
+    .slide.active .badge-row .sport-badge:nth-child(1) { animation-delay:1.5s; }
+    .slide.active .badge-row .sport-badge:nth-child(2) { animation-delay:1.65s; }
+    .slide.active .badge-row .sport-badge:nth-child(3) { animation-delay:1.8s; }
     .slide.active .row { animation:fadeUp 0.5s ease 0.15s both; }
     .slide.active .pbar { animation:slideRight 0.5s ease both; }
     .slide.active .pbar:nth-child(1) { animation-delay:0.1s; }
@@ -165,6 +191,7 @@
     .stat-card .sc-label { font-size:clamp(10px,0.9vw,13px); font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--z500); margin-bottom:6px; }
     .stat-card .sc-val { font-size:clamp(30px,3.5vw,48px); font-weight:900; line-height:1.1; }
     .stat-card .sc-sub { font-size:clamp(12px,1.1vw,15px); color:var(--z500); margin-top:4px; }
+    .sc-val.shimmer { animation:valueShimmer 3s ease-in-out 2s infinite; }
 
     /* ── METRIC BOXES ── */
     .metrics { display:flex; gap:16px; }
@@ -312,7 +339,7 @@
     .tam .ring { border-radius:50%; position:absolute; transition:all 0.4s ease; }
     .tam .ring.o { inset:0; border:2px solid var(--red-20); background:rgba(220,38,38,0.02); }
     .tam .ring.m { inset:18%; border:2px solid rgba(220,38,38,0.4); background:rgba(220,38,38,0.04); }
-    .tam .ring.i { inset:37%; border:2px solid var(--red); background:var(--red-10); box-shadow:0 0 30px rgba(220,38,38,0.1); }
+    .tam .ring.i { inset:37%; border:2px solid var(--red); background:var(--red-10); animation:ringGlow 3s ease-in-out 2s infinite; }
     .tam .ring:hover { transform:scale(1.03); }
     .tam .rv { font-size:clamp(18px,1.9vw,24px); font-weight:900; color:var(--red); }
     .tam .rl { font-size:clamp(8px,0.8vw,11px); font-weight:700; color:var(--z400); text-transform:uppercase; letter-spacing:1.2px; }
@@ -419,7 +446,7 @@
     }
     .sport-badge:hover { border-color:rgba(255,255,255,0.2); transform:translateY(-1px); }
     .sport-badge.active { border-color:var(--red); color:var(--red); background:rgba(220,38,38,0.08); box-shadow:0 0 16px rgba(220,38,38,0.1); }
-    .sport-badge.active .sb-dot { box-shadow:0 0 6px rgba(220,38,38,0.5); }
+    .sport-badge.active .sb-dot { animation:livePulse 2s ease-in-out infinite; }
     .sport-badge .sb-dot { width:8px; height:8px; border-radius:50%; }
 
     /* ── GLOW FX ── */
@@ -602,7 +629,7 @@
         <h2>$2.5B in NIL value.<br/><span class="red">Zero infrastructure.</span></h2>
         <p class="body" style="margin-bottom:12px;">House v. NCAA settlement forces institutions into revenue sharing. Collectives declining 82%. Schools need professional tools now.</p>
         <div class="row tight">
-          <div class="stat-card f1"><div class="sc-label">Basketball Est. NIL</div><div class="sc-val" style="color:var(--red);">$2.50B</div><div class="sc-sub">NCAA D1 Men's</div></div>
+          <div class="stat-card f1"><div class="sc-label">Basketball Est. NIL</div><div class="sc-val shimmer" style="color:var(--red);">$2.50B</div><div class="sc-sub">NCAA D1 Men's</div></div>
           <div class="stat-card f1"><div class="sc-label">Athletes Tracked</div><div class="sc-val">5,630</div><div class="sc-sub">Active participants</div></div>
         </div>
         <div class="row tight mt-8">
@@ -616,7 +643,7 @@
           <div class="ring m"><div class="tag"><span class="rv">$4.2B</span><span class="rl">SAM · NIL Tech</span></div></div>
           <div class="ring i"><div class="tag"><span class="rv">$850M</span><span class="rl">SOM</span></div></div>
         </div>
-        <div style="display:flex;gap:6px;margin-top:16px;">
+        <div class="badge-row" style="display:flex;gap:6px;margin-top:16px;">
           <span class="sport-badge active"><span class="sb-dot" style="background:var(--red);"></span> MBB Live</span>
           <span class="sport-badge"><span class="sb-dot" style="background:#F59E0B;"></span> WBB Soon</span>
           <span class="sport-badge"><span class="sb-dot" style="background:var(--z600);"></span> Football Soon</span>
@@ -2128,7 +2155,7 @@
     document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
 
     // Force re-trigger CSS animations by cloning/replacing animated elements
-    newSlide.querySelectorAll('.fcard, .stat-card, .mbox, .mu-win, .tam, .pbar').forEach(el => {
+    newSlide.querySelectorAll('.fcard, .stat-card, .mbox, .mu-win, .tam, .pbar, .tam .ring, .tam .tag, .badge-row .sport-badge').forEach(el => {
       el.style.animation = 'none';
       el.offsetHeight; // force reflow
       el.style.animation = '';
