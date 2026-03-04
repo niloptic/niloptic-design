@@ -127,6 +127,13 @@
     .slide.active .stat-card { animation:fadeUp 0.5s ease both; }
     .slide.active .stat-card:nth-child(1) { animation-delay:0.1s; }
     .slide.active .stat-card:nth-child(2) { animation-delay:0.2s; }
+    .slide.active .stat-card:nth-child(3) { animation-delay:0.3s; }
+    #s12.active .card { animation:scaleIn 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+    #s12.active .card:nth-child(1) { animation-delay:0.10s; }
+    #s12.active .card:nth-child(2) { animation-delay:0.16s; }
+    #s12.active .card:nth-child(3) { animation-delay:0.22s; }
+    #s12.active .card:nth-child(4) { animation-delay:0.28s; }
+    #s12.active .card:nth-child(5) { animation-delay:0.34s; }
     .slide.active .mbox { animation:fadeUp 0.5s ease both; }
     .slide.active .mbox:nth-child(1) { animation-delay:0.1s; }
     .slide.active .mbox:nth-child(2) { animation-delay:0.15s; }
@@ -982,99 +989,133 @@
     <div class="label">Multi-Persona Platform</div>
     <h2>One platform. <span class="red">Every stakeholder.</span></h2>
     <p class="body" style="margin-bottom:clamp(12px,1.6vh,20px);max-width:760px;">NIL Optic serves 10 distinct roles — each with a purpose-built dashboard, permissions, and workflow.</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.2vw,16px);flex:1;min-height:0;">
+    <!-- Tier 1: Primary Roles (5-column grid) -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(8px,1vw,12px);">
       <!-- Athletic Director -->
       <div class="card" style="display:flex;flex-direction:column;padding:0;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,rgba(220,38,38,0.15) 0%,var(--z900) 70%);padding:clamp(14px,1.8vh,20px);border-bottom:1px solid var(--z800);">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-            <div style="width:32px;height:32px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <div style="background:linear-gradient(135deg,rgba(220,38,38,0.15) 0%,var(--z900) 70%);padding:clamp(10px,1.2vh,14px);border-bottom:1px solid var(--z800);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <div style="width:28px;height:28px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
             </div>
-            <div style="font-size:clamp(14px,1.3vw,18px);font-weight:800;color:var(--white);">Athletic Director</div>
+            <div style="font-size:clamp(12px,1.1vw,16px);font-weight:800;color:var(--white);">Athletic Director</div>
           </div>
-          <div style="font-size:clamp(12px,1.1vw,15px);color:var(--z400);line-height:1.4;">Executive NIL dashboard with program valuation and cap table</div>
+          <div style="font-size:clamp(11px,1vw,14px);color:var(--z400);line-height:1.4;">Executive NIL dashboard with program valuation and cap table</div>
         </div>
-        <div style="padding:clamp(12px,1.5vh,18px);flex:1;display:flex;flex-direction:column;gap:clamp(6px,0.8vh,10px);">
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">NIL-value-first executive dashboard</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Organization Cap Table (Budget + EST Cap)</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Conference & division rankings</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Org user management & invites</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Budget & allocation settings</span></div>
+        <div style="padding:clamp(8px,1vh,12px);display:flex;flex-direction:column;gap:clamp(4px,0.6vh,7px);">
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">NIL-value-first executive dashboard</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Organization Cap Table (Budget + EST Cap)</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Conference & division rankings</span></div>
         </div>
       </div>
       <!-- General Manager -->
       <div class="card" style="display:flex;flex-direction:column;padding:0;overflow:hidden;border-color:var(--red);">
-        <div style="background:linear-gradient(135deg,rgba(220,38,38,0.2) 0%,var(--z900) 70%);padding:clamp(14px,1.8vh,20px);border-bottom:1px solid rgba(220,38,38,0.3);">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-            <div style="width:32px;height:32px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <div style="background:linear-gradient(135deg,rgba(220,38,38,0.2) 0%,var(--z900) 70%);padding:clamp(10px,1.2vh,14px);border-bottom:1px solid rgba(220,38,38,0.3);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <div style="width:28px;height:28px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
             </div>
-            <div style="font-size:clamp(14px,1.3vw,18px);font-weight:800;color:var(--white);">General Manager</div>
+            <div style="font-size:clamp(12px,1.1vw,16px);font-weight:800;color:var(--white);">General Manager</div>
           </div>
-          <div style="font-size:clamp(12px,1.1vw,15px);color:var(--z400);line-height:1.4;">Roster strategy, valuations, and contract tracking across programs</div>
+          <div style="font-size:clamp(11px,1vw,14px);color:var(--z400);line-height:1.4;">Roster strategy, valuations, and contract tracking across programs</div>
         </div>
-        <div style="padding:clamp(12px,1.5vh,18px);flex:1;display:flex;flex-direction:column;gap:clamp(6px,0.8vh,10px);">
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Roster strategy dashboard</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Contract & valuation tracking</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Add to Pipeline actions</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Sports Directory access</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Global outbound messaging</span></div>
+        <div style="padding:clamp(8px,1vh,12px);display:flex;flex-direction:column;gap:clamp(4px,0.6vh,7px);">
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Roster strategy dashboard</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Contract & valuation tracking</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Add to Pipeline actions</span></div>
         </div>
       </div>
       <!-- Coach -->
       <div class="card" style="display:flex;flex-direction:column;padding:0;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,rgba(220,38,38,0.15) 0%,var(--z900) 70%);padding:clamp(14px,1.8vh,20px);border-bottom:1px solid var(--z800);">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-            <div style="width:32px;height:32px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div style="background:linear-gradient(135deg,rgba(220,38,38,0.15) 0%,var(--z900) 70%);padding:clamp(10px,1.2vh,14px);border-bottom:1px solid var(--z800);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <div style="width:28px;height:28px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <div style="font-size:clamp(14px,1.3vw,18px);font-weight:800;color:var(--white);">Coach</div>
+            <div style="font-size:clamp(12px,1.1vw,16px);font-weight:800;color:var(--white);">Coach</div>
           </div>
-          <div style="font-size:clamp(12px,1.1vw,15px);color:var(--z400);line-height:1.4;">Program-scoped roster, recruiting pipelines, and player allocations</div>
+          <div style="font-size:clamp(11px,1vw,14px);color:var(--z400);line-height:1.4;">Program-scoped roster, recruiting pipelines, and player allocations</div>
         </div>
-        <div style="padding:clamp(12px,1.5vh,18px);flex:1;display:flex;flex-direction:column;gap:clamp(6px,0.8vh,10px);">
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Team roster & performance</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Recruiting pipelines</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Player-level allocations</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Scoped messaging (program + agents)</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Games & standings</span></div>
+        <div style="padding:clamp(8px,1vh,12px);display:flex;flex-direction:column;gap:clamp(4px,0.6vh,7px);">
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Team roster & performance</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Recruiting pipelines</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Player-level allocations</span></div>
         </div>
       </div>
       <!-- Agent -->
       <div class="card" style="display:flex;flex-direction:column;padding:0;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,rgba(220,38,38,0.15) 0%,var(--z900) 70%);padding:clamp(14px,1.8vh,20px);border-bottom:1px solid var(--z800);">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-            <div style="width:32px;height:32px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div style="background:linear-gradient(135deg,rgba(220,38,38,0.15) 0%,var(--z900) 70%);padding:clamp(10px,1.2vh,14px);border-bottom:1px solid var(--z800);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <div style="width:28px;height:28px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
-            <div style="font-size:clamp(14px,1.3vw,18px);font-weight:800;color:var(--white);">Agent</div>
+            <div style="font-size:clamp(12px,1.1vw,16px);font-weight:800;color:var(--white);">Agent</div>
           </div>
-          <div style="font-size:clamp(12px,1.1vw,15px);color:var(--z400);line-height:1.4;">Portfolio management, deal pipeline, and NIL payment operations</div>
+          <div style="font-size:clamp(11px,1vw,14px);color:var(--z400);line-height:1.4;">Portfolio management, deal pipeline, and NIL payment operations</div>
         </div>
-        <div style="padding:clamp(12px,1.5vh,18px);flex:1;display:flex;flex-direction:column;gap:clamp(6px,0.8vh,10px);">
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Represented athlete portfolio</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Agency office pipeline</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Budget summary & allocations</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">NIL payment creation</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><span style="color:#22C55E;font-size:clamp(12px,1.1vw,15px);font-weight:700;">✓</span><span style="font-size:clamp(12px,1.1vw,15px);color:var(--z300);">Avatar & profile management</span></div>
+        <div style="padding:clamp(8px,1vh,12px);display:flex;flex-direction:column;gap:clamp(4px,0.6vh,7px);">
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Represented athlete portfolio</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Agency office pipeline</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">NIL payment creation</span></div>
+        </div>
+      </div>
+      <!-- Asst. Athletic Director -->
+      <div class="card" style="display:flex;flex-direction:column;padding:0;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,rgba(220,38,38,0.15) 0%,var(--z900) 70%);padding:clamp(10px,1.2vh,14px);border-bottom:1px solid var(--z800);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <div style="width:28px;height:28px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+            </div>
+            <div style="font-size:clamp(12px,1.1vw,16px);font-weight:800;color:var(--white);">Asst. Athletic Director</div>
+          </div>
+          <div style="font-size:clamp(11px,1vw,14px);color:var(--z400);line-height:1.4;">Operations, event readiness, and staffing coverage</div>
+        </div>
+        <div style="padding:clamp(8px,1vh,12px);display:flex;flex-direction:column;gap:clamp(4px,0.6vh,7px);">
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Day-to-day operations</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Event-readiness checkpoints</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22C55E;font-size:clamp(11px,1vw,14px);font-weight:700;">✓</span><span style="font-size:clamp(11px,1vw,14px);color:var(--z300);">Staffing & escalation mgmt</span></div>
         </div>
       </div>
     </div>
-    <!-- Bottom row: Athlete + Fan + Total Roles -->
-    <div style="display:flex;gap:clamp(10px,1.2vw,16px);margin-top:clamp(10px,1.4vh,16px);">
-      <div class="stat-card" style="flex:1;display:flex;align-items:center;gap:14px;padding:clamp(14px,1.8vh,20px) clamp(16px,1.8vw,24px);">
-        <div style="width:36px;height:36px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+    <!-- Tier 2: Secondary Roles (3-column grid) -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1vw,12px);margin-top:clamp(8px,1vh,12px);">
+      <!-- Agency Admin -->
+      <div class="stat-card" style="display:flex;align-items:center;gap:12px;padding:clamp(10px,1.2vh,14px) clamp(12px,1.4vw,18px);">
+        <div style="width:32px;height:32px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <div><div style="font-size:clamp(14px,1.3vw,18px);font-weight:800;color:var(--white);">Athlete</div><div style="font-size:clamp(12px,1.1vw,15px);color:var(--z400);margin-top:2px;">Free tier · Own NIL valuation, shot chart, relational comparisons, Find an Agent</div></div>
+        <div><div style="font-size:clamp(13px,1.2vw,16px);font-weight:800;color:var(--white);">Agency Admin</div><div style="font-size:clamp(11px,1vw,14px);color:var(--z400);margin-top:2px;">Office/agent/compliance oversight, agent workload tracking</div></div>
       </div>
-      <div class="stat-card" style="flex:1;display:flex;align-items:center;gap:14px;padding:clamp(14px,1.8vh,20px) clamp(16px,1.8vw,24px);">
-        <div style="width:36px;height:36px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <!-- Affiliate Admin -->
+      <div class="stat-card" style="display:flex;align-items:center;gap:12px;padding:clamp(10px,1.2vh,14px) clamp(12px,1.4vw,18px);">
+        <div style="width:32px;height:32px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
         </div>
-        <div><div style="font-size:clamp(14px,1.3vw,18px);font-weight:800;color:var(--white);">Fan</div><div style="font-size:clamp(12px,1.1vw,15px);color:var(--z400);margin-top:2px;">Fan-lite · Top-3 NIL valuations, roster builder, favorites, tournaments</div></div>
+        <div><div style="font-size:clamp(13px,1.2vw,16px);font-weight:800;color:var(--white);">Affiliate Admin</div><div style="font-size:clamp(11px,1vw,14px);color:var(--z400);margin-top:2px;">Office operations oversight, account escalation, global outbound</div></div>
       </div>
-      <div class="stat-card" style="flex:0 0 auto;padding:clamp(14px,1.8vh,20px) clamp(20px,2.5vw,32px);text-align:center;">
+      <!-- Affiliate -->
+      <div class="stat-card" style="display:flex;align-items:center;gap:12px;padding:clamp(10px,1.2vh,14px) clamp(12px,1.4vw,18px);">
+        <div style="width:32px;height:32px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div><div style="font-size:clamp(13px,1.2vw,16px);font-weight:800;color:var(--white);">Affiliate</div><div style="font-size:clamp(11px,1vw,14px);color:var(--z400);margin-top:2px;">Inbound-first messaging, account servicing, advisory delivery</div></div>
+      </div>
+    </div>
+    <!-- Tier 3: Consumer Roles + Total -->
+    <div style="display:flex;gap:clamp(8px,1vw,12px);margin-top:clamp(8px,1vh,12px);">
+      <div class="stat-card" style="flex:1;display:flex;align-items:center;gap:12px;padding:clamp(10px,1.2vh,14px) clamp(12px,1.4vw,18px);">
+        <div style="width:32px;height:32px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div><div style="font-size:clamp(13px,1.2vw,16px);font-weight:800;color:var(--white);">Athlete</div><div style="font-size:clamp(11px,1vw,14px);color:var(--z400);margin-top:2px;">Free tier · Own NIL valuation, shot chart, relational comparisons, Find an Agent</div></div>
+      </div>
+      <div class="stat-card" style="flex:1;display:flex;align-items:center;gap:12px;padding:clamp(10px,1.2vh,14px) clamp(12px,1.4vw,18px);">
+        <div style="width:32px;height:32px;border-radius:8px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div><div style="font-size:clamp(13px,1.2vw,16px);font-weight:800;color:var(--white);">Fan</div><div style="font-size:clamp(11px,1vw,14px);color:var(--z400);margin-top:2px;">Fan-lite · Top-3 NIL valuations, roster builder, favorites, tournaments</div></div>
+      </div>
+      <div class="stat-card" style="flex:0 0 auto;padding:clamp(10px,1.2vh,14px) clamp(20px,2.5vw,32px);text-align:center;">
         <div class="sc-label">Total Roles</div>
         <div style="font-size:clamp(24px,2.8vw,36px);font-weight:900;color:var(--red);">10</div>
       </div>
@@ -2155,7 +2196,7 @@
     document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
 
     // Force re-trigger CSS animations by cloning/replacing animated elements
-    newSlide.querySelectorAll('.fcard, .stat-card, .mbox, .mu-win, .tam, .pbar, .tam .ring, .tam .tag, .badge-row .sport-badge').forEach(el => {
+    newSlide.querySelectorAll('.fcard, .card, .stat-card, .mbox, .mu-win, .tam, .pbar, .tam .ring, .tam .tag, .badge-row .sport-badge').forEach(el => {
       el.style.animation = 'none';
       el.offsetHeight; // force reflow
       el.style.animation = '';
