@@ -136,7 +136,47 @@
     #s12.active .card:nth-child(4) { animation-delay:0.28s; }
     #s12.active .card:nth-child(5) { animation-delay:0.34s; }
 
-    /* ── TEAM SLIDE (s27) ── */
+    /* ── CASE STUDY SLIDES ── */
+    .cs-article { display:grid; grid-template-columns:1.2fr 0.8fr; gap:clamp(20px,2vw,32px); flex:1; min-height:0; }
+    .cs-masthead { border-left:3px solid var(--red); padding-left:clamp(16px,1.5vw,24px); display:flex; flex-direction:column; }
+    .cs-school { font-size:clamp(12px,1.1vw,15px); font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:clamp(8px,1vh,14px); }
+    .cs-headline { font-size:clamp(22px,2.8vw,36px); font-weight:800; line-height:1.15; color:var(--white); }
+    .cs-body { font-size:clamp(14px,1.3vw,18px); color:var(--z400); line-height:1.65; margin-top:clamp(12px,1.5vh,18px); }
+    .cs-quote { border-left:2px solid var(--red); padding:clamp(10px,1.2vh,16px) clamp(14px,1.3vw,20px); font-style:italic; color:var(--z300); font-size:clamp(14px,1.3vw,18px); line-height:1.5; margin-top:auto; background:rgba(220,38,38,0.04); border-radius:0 8px 8px 0; }
+    .cs-sidebar { display:flex; flex-direction:column; gap:clamp(12px,1.4vh,18px); }
+    .cs-insights { background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:clamp(18px,2vh,28px); flex:1; }
+    .cs-insights .cs-ins-title { font-size:clamp(11px,1vw,14px); font-weight:700; color:var(--z500); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:clamp(10px,1.2vh,16px); }
+    .cs-insights ul { list-style:none; display:flex; flex-direction:column; gap:clamp(8px,1vh,12px); }
+    .cs-insights li { font-size:clamp(14px,1.3vw,18px); color:var(--z300); padding-left:16px; position:relative; }
+    .cs-insights li::before { content:'→'; position:absolute; left:0; color:var(--red); font-weight:700; }
+    .cs-impact { background:rgba(220,38,38,0.06); border:1px solid rgba(220,38,38,0.15); border-radius:8px; padding:clamp(14px,1.6vh,20px); }
+    .cs-impact .cs-imp-title { font-size:clamp(10px,0.9vw,13px); font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px; }
+    .cs-impact p { font-size:clamp(14px,1.3vw,18px); color:var(--z300); line-height:1.5; }
+    .slide.active .cs-article { animation:fadeUp 0.5s ease 0.15s both; }
+    .slide.active .cs-sidebar { animation:fadeUp 0.5s ease 0.3s both; }
+    .slide.active .cs-quote { animation:fadeUp 0.4s ease 0.5s both; }
+    /* Program badges */
+    .prog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(clamp(140px,14vw,180px),1fr)); gap:clamp(10px,1.2vw,16px); flex:1; min-height:0; align-content:start; }
+    .prog-badge { background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:clamp(12px,1.4vh,18px) clamp(14px,1.3vw,20px); display:flex; align-items:center; gap:clamp(8px,0.8vw,12px); transition:all 0.3s ease; }
+    .prog-badge:hover { border-color:rgba(220,38,38,0.25); background:rgba(220,38,38,0.04); }
+    .prog-badge .pb-icon { font-size:clamp(16px,1.6vw,22px); flex-shrink:0; }
+    .prog-badge .pb-name { font-size:clamp(13px,1.2vw,17px); font-weight:700; color:var(--white); }
+    .prog-badge .pb-conf { font-size:clamp(10px,0.9vw,13px); color:var(--z500); margin-top:1px; }
+    .slide.active .prog-badge { animation:scaleIn 0.4s cubic-bezier(0.22,1,0.36,1) both; }
+    .slide.active .prog-badge:nth-child(1) { animation-delay:0.15s; }
+    .slide.active .prog-badge:nth-child(2) { animation-delay:0.2s; }
+    .slide.active .prog-badge:nth-child(3) { animation-delay:0.25s; }
+    .slide.active .prog-badge:nth-child(4) { animation-delay:0.3s; }
+    .slide.active .prog-badge:nth-child(5) { animation-delay:0.35s; }
+    .slide.active .prog-badge:nth-child(6) { animation-delay:0.4s; }
+    .slide.active .prog-badge:nth-child(7) { animation-delay:0.45s; }
+    .slide.active .prog-badge:nth-child(8) { animation-delay:0.5s; }
+    .slide.active .prog-badge:nth-child(9) { animation-delay:0.55s; }
+    .slide.active .prog-badge:nth-child(10) { animation-delay:0.6s; }
+    .slide.active .prog-badge:nth-child(11) { animation-delay:0.65s; }
+    .slide.active .prog-badge:nth-child(12) { animation-delay:0.7s; }
+
+    /* ── TEAM SLIDE (s29) ── */
     @keyframes ringPulse {
       0%, 100% { box-shadow:0 0 0 0 rgba(220,38,38,0.4); }
       50% { box-shadow:0 0 0 8px rgba(220,38,38,0); }
@@ -150,11 +190,11 @@
     .ac { transition:all 0.3s ease; }
     .ac:hover { background:rgba(255,255,255,0.04); border-radius:10px; }
     .ac:hover .ac-ring { animation:ringPulse 2s ease-in-out infinite; }
-    #s27.active .tc { animation:scaleIn 0.5s cubic-bezier(0.22,1,0.36,1) both; }
-    #s27.active .tc:nth-child(1) { animation-delay:0.1s; }
-    #s27.active .tc:nth-child(2) { animation-delay:0.2s; }
-    #s27.active .tc:nth-child(3) { animation-delay:0.3s; }
-    #s27.active .adv-panel { animation:fadeUp 0.5s ease 0.35s both; }
+    #s29.active .tc { animation:scaleIn 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+    #s29.active .tc:nth-child(1) { animation-delay:0.1s; }
+    #s29.active .tc:nth-child(2) { animation-delay:0.2s; }
+    #s29.active .tc:nth-child(3) { animation-delay:0.3s; }
+    #s29.active .adv-panel { animation:fadeUp 0.5s ease 0.35s both; }
     .slide.active .mbox { animation:fadeUp 0.5s ease both; }
     .slide.active .mbox:nth-child(1) { animation-delay:0.1s; }
     .slide.active .mbox:nth-child(2) { animation-delay:0.15s; }
@@ -1939,8 +1979,81 @@
     </div>
   </div>
 
-  <!-- 27 TEAM -->
+  <!-- 27 ADOPTION — SMU CASE STUDY -->
   <div class="slide" id="s27">
+    <div class="grid-bg"></div>
+    <div class="label">Adoption in Motion</div>
+    <h2 style="max-width:900px;">How SMU Basketball Could Use NIL Optic to <span class="red">Optimize Roster Investments</span></h2>
+    <div class="cs-article mt-16">
+      <div class="cs-masthead">
+        <div class="cs-school">🏀 SMU Mustangs · Men's Basketball · ACC</div>
+        <div class="cs-body" style="margin-top:0;">As NIL funding becomes a competitive recruiting tool, programs like SMU are exploring data-driven approaches to allocating NIL resources. NIL Optic enables programs to compare athlete performance metrics with market valuation, helping coaches and collectives allocate budgets more strategically.</div>
+        <div class="cs-body">With conference realignment placing SMU in the ACC, the program faces new competitive pressure to recruit and retain top talent. Real-time valuation intelligence becomes a strategic advantage — not a luxury.</div>
+        <div class="cs-quote">
+          "The programs that win in the NIL era won't be the ones spending the most — they'll be the ones spending the smartest."
+        </div>
+      </div>
+      <div class="cs-sidebar">
+        <div class="cs-insights">
+          <div class="cs-ins-title">Key Insights</div>
+          <ul>
+            <li>Performance-based NIL valuation tied to on-court metrics</li>
+            <li>Comparable player market analysis across conferences</li>
+            <li>Strategic NIL allocation aligned to roster needs</li>
+            <li>Transfer portal valuation for incoming targets</li>
+            <li>Budget optimization against competitive benchmarks</li>
+          </ul>
+        </div>
+        <div class="cs-impact">
+          <div class="cs-imp-title">How NIL Optic Helps</div>
+          <p>Better recruiting decisions, smarter NIL budget planning, and a data-driven edge in the most competitive conference in college basketball.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 28 PROGRAMS IN CONVERSATION -->
+  <div class="slide" id="s28">
+    <div class="grid-bg"></div>
+    <div class="label">Pipeline</div>
+    <h2><span class="red">30+</span> NCAA Programs in Conversation</h2>
+    <p class="sub" style="margin-bottom:clamp(16px,2vh,24px);max-width:700px;">Athletic programs across conferences are exploring how NIL Optic can bring transparency, strategy, and intelligence to their NIL operations.</p>
+    <div class="prog-grid">
+      <div class="prog-badge"><div class="pb-icon">🏀</div><div><div class="pb-name">SMU</div><div class="pb-conf">ACC · Basketball</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">🏀</div><div><div class="pb-name">Monmouth</div><div class="pb-conf">CAA · Basketball</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">🏀</div><div><div class="pb-name">Rhode Island</div><div class="pb-conf">A-10 · Basketball</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">🏈</div><div><div class="pb-name">North Texas</div><div class="pb-conf">AAC · Football</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">🏀</div><div><div class="pb-name">Seton Hall</div><div class="pb-conf">Big East · Basketball</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">🏈</div><div><div class="pb-name">Memphis</div><div class="pb-conf">AAC · Football</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">🏀</div><div><div class="pb-name">VCU</div><div class="pb-conf">A-10 · Basketball</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">🏈</div><div><div class="pb-name">Marshall</div><div class="pb-conf">Sun Belt · Football</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">🏀</div><div><div class="pb-name">George Mason</div><div class="pb-conf">A-10 · Basketball</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">🏈</div><div><div class="pb-name">App State</div><div class="pb-conf">Sun Belt · Football</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">🏀</div><div><div class="pb-name">Hofstra</div><div class="pb-conf">CAA · Basketball</div></div></div>
+      <div class="prog-badge"><div class="pb-icon">⚾</div><div><div class="pb-name">Coastal Carolina</div><div class="pb-conf">Sun Belt · Baseball</div></div></div>
+    </div>
+    <div style="display:flex;gap:clamp(10px,1.2vw,16px);margin-top:clamp(12px,1.5vh,18px);">
+      <div class="stat-card" style="flex:1;text-align:center;padding:clamp(12px,1.5vh,18px);">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(22px,2.6vw,34px);font-weight:900;color:var(--red);">30+</div>
+        <div class="sc-label" style="margin-top:4px;">Programs Engaged</div>
+      </div>
+      <div class="stat-card" style="flex:1;text-align:center;padding:clamp(12px,1.5vh,18px);">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(22px,2.6vw,34px);font-weight:900;color:var(--white);">8+</div>
+        <div class="sc-label" style="margin-top:4px;">Conferences</div>
+      </div>
+      <div class="stat-card" style="flex:1;text-align:center;padding:clamp(12px,1.5vh,18px);">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(22px,2.6vw,34px);font-weight:900;color:var(--white);">3</div>
+        <div class="sc-label" style="margin-top:4px;">Sports</div>
+      </div>
+      <div class="stat-card" style="flex:1;text-align:center;padding:clamp(12px,1.5vh,18px);">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(22px,2.6vw,34px);font-weight:900;color:#22C55E;">Growing</div>
+        <div class="sc-label" style="margin-top:4px;">Pipeline Velocity</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 29 TEAM -->
+  <div class="slide" id="s29">
     <div class="grid-bg"></div>
     <div class="label">The Team</div>
     <h2>Built by operators who understand the <span class="red">economics of college sports.</span></h2>
@@ -2056,8 +2169,8 @@
     </div>
   </div>
 
-  <!-- 28 THE ASK -->
-  <div class="slide" id="s28">
+  <!-- 30 THE ASK -->
+  <div class="slide" id="s30">
     <div class="grid-bg"></div>
     <div class="label">The Ask</div>
     <h2 style="margin-bottom:0;">Raising <span class="red">$5M</span> Series A</h2>
@@ -2219,8 +2332,8 @@
     </div>
   </div>
 
-  <!-- 29 CLOSE -->
-  <div class="slide full-center" id="s29">
+  <!-- 31 CLOSE -->
+  <div class="slide full-center" id="s31">
     <div class="grid-bg"></div>
     <div class="glow-bg glow-center"></div>
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px;">
@@ -2241,14 +2354,14 @@
 <!-- Nav -->
 <div class="nav">
   <button onclick="prev()"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7L9 12"/></svg></button>
-  <span class="ctr"><span id="cur">1</span><span style="color:var(--z700);"> / </span>29</span>
+  <span class="ctr"><span id="cur">1</span><span style="color:var(--z700);"> / </span>31</span>
   <div class="progress-track"><div class="progress-fill" id="pbar" style="width:3.45%"></div></div>
   <button onclick="next()"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2L10 7L5 12"/></svg></button>
 </div>
 
 <script>
   let cur = 1;
-  const total = 29;
+  const total = 31;
 
   // Slide name map for friendly URL anchors
   const slideNames = {
@@ -2256,7 +2369,8 @@
     predictions:7, roster:8, recruiting:9, directory:10, athlete:11,
     personas:12, ad:13, coach:14, agent:15, sports:16, mbb:17, wbb:18,
     football:19, expansion:20, agents:21, affiliates:22, business:23,
-    pricing:24, competitive:25, traction:26, team:27, ask:28, close:29
+    pricing:24, competitive:25, traction:26, adoption:27, programs:28,
+    team:29, ask:30, close:31
   };
   const slideNamesByNum = Object.fromEntries(Object.entries(slideNames).map(([k,v]) => [v,k]));
 
@@ -2326,7 +2440,7 @@
     document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
 
     // Force re-trigger CSS animations by cloning/replacing animated elements
-    newSlide.querySelectorAll('.fcard, .card, .tc, .adv-panel, .stat-card, .mbox, .mu-win, .tam, .pbar, .tam .ring, .tam .tag, .badge-row .sport-badge').forEach(el => {
+    newSlide.querySelectorAll('.fcard, .card, .tc, .adv-panel, .stat-card, .mbox, .mu-win, .tam, .pbar, .tam .ring, .tam .tag, .badge-row .sport-badge, .cs-article, .cs-sidebar, .cs-quote, .prog-badge').forEach(el => {
       el.style.animation = 'none';
       el.offsetHeight; // force reflow
       el.style.animation = '';
