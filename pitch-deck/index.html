@@ -319,7 +319,7 @@
     .ctable .p { color:#F59E0B; font-weight:600; }
 
     /* ── PRICING ── */
-    .pgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; flex:1; min-height:0; align-content:start; }
+    .pgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; min-height:0; }
     .pcard {
       background:var(--z900); border:1px solid var(--z800);
       border-radius:14px; padding:clamp(24px,3.5vh,36px); text-align:center;
@@ -328,7 +328,7 @@
     .pcard:hover { transform:translateY(-4px); border-color:rgba(255,255,255,0.12); }
     .pcard.pop { border-color:var(--red); box-shadow:0 0 40px rgba(220,38,38,0.12), 0 0 0 1px rgba(220,38,38,0.15); position:relative; }
     .pcard.pop:hover { box-shadow:0 0 60px rgba(220,38,38,0.2), 0 0 0 1px rgba(220,38,38,0.3); }
-    .pcard.pop::before { content:'MOST POPULAR'; position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--red); color:white; font-size:11px; font-weight:700; letter-spacing:1.5px; padding:5px 16px; border-radius:100px; }
+    .pcard.pop::before { content:'PRIMARY'; position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--red); color:white; font-size:11px; font-weight:700; letter-spacing:1.5px; padding:5px 16px; border-radius:100px; }
     .pcard .tier { font-size:clamp(11px,1vw,14px); font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--z500); margin-bottom:14px; }
     .pcard.pop .tier { color:var(--red); }
     .pcard .price { font-size:clamp(34px,4vw,52px); font-weight:900; margin-bottom:18px; }
@@ -1817,24 +1817,46 @@
     <div class="label">Pricing</div>
     <h2>Simple. Transparent. <span class="red">Scalable.</span></h2>
     <div class="pgrid mt-20">
-      <div class="pcard">
-        <div class="tier">Player</div>
-        <div class="price">Free</div>
-        <ul><li>Personal NIL valuation</li><li>Valuation trend tracking</li><li>National ranking</li><li>Basic profile</li></ul>
-        <div style="font-size:12px;color:var(--z600);margin-top:10px;text-align:center;">Start Free · Upgrade Anytime</div>
-      </div>
       <div class="pcard pop">
-        <div class="tier">Agency Pro</div>
-        <div class="price">$149<span>/mo</span></div>
-        <ul><li>Unlimited athlete tracking</li><li>Recruiting pipeline</li><li>Predictions engine</li><li>Roster builder</li><li>Tournament intelligence</li><li>Priority support</li></ul>
+        <div class="tier">Athletic Department</div>
+        <div class="price">$25K<span>/yr</span></div>
+        <div style="font-size:clamp(12px,1.1vw,15px);color:var(--z500);margin-bottom:14px;">Starting at · Tiered by program</div>
+        <ul><li>Full program dashboard</li><li>Compliance & budget tools</li><li>Roster builder & transfer portal</li><li>Predictions engine</li><li>Sports directory & agent directory</li><li>Messaging & huddles</li><li>All sport coverage</li><li>Dedicated success manager</li></ul>
+        <div style="font-size:clamp(11px,1vw,14px);color:var(--z500);margin-top:12px;padding-top:10px;border-top:1px solid var(--z800);text-align:center;font-family:'JetBrains Mono',monospace;">Blended ACV ~$75K · Tiered by NIL spend</div>
       </div>
       <div class="pcard">
-        <div class="tier">Athletic Department</div>
-        <div class="price">Custom</div>
-        <ul><li>Full program dashboard</li><li>Compliance monitoring</li><li>Budget forecasting</li><li>All sport coverage</li><li>Dedicated success mgr</li><li>SLA guarantee</li></ul>
+        <div class="tier">Agency</div>
+        <div class="price">$30K<span>/yr</span></div>
+        <div style="font-size:clamp(12px,1.1vw,15px);color:var(--z500);margin-bottom:14px;">Annual platform license</div>
+        <ul><li>Unlimited athlete tracking</li><li>Recruiting pipeline</li><li>Predictions engine</li><li>Roster builder & transfer portal</li><li>Sports directory & agent directory</li><li>Messaging & huddles</li><li>Favorites & watchlists</li><li>Priority support</li></ul>
+      </div>
+      <div class="pcard">
+        <div class="tier">Athlete</div>
+        <div class="price">Free</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);color:var(--z500);margin-bottom:14px;">Premium upgrade path</div>
+        <ul><li>Personal NIL valuation</li><li>Valuation trend tracking</li><li>National ranking</li><li>Sports directory</li><li>Messaging</li><li>Favorites</li></ul>
+        <div style="font-size:clamp(11px,1vw,14px);color:var(--z500);margin-top:12px;text-align:center;">Free for every NCAA athlete</div>
       </div>
     </div>
-    <p class="d center mt-12" style="font-size:11px;">All plans include 14-day free trial · No credit card required</p>
+    <!-- Revenue Trajectory -->
+    <div style="display:flex;gap:clamp(10px,1.2vw,16px);margin-top:clamp(14px,2vh,22px);">
+      <div class="stat-card" style="flex:1;text-align:center;padding:clamp(14px,1.8vh,22px);">
+        <div class="sc-label">Year 1</div>
+        <div style="font-size:clamp(22px,2.8vw,36px);font-weight:900;color:var(--red);font-family:'JetBrains Mono',monospace;">$7.5M</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);color:var(--z500);margin-top:4px;">100+ Schools · Revenue in 6 months</div>
+      </div>
+      <div class="stat-card" style="flex:1;text-align:center;padding:clamp(14px,1.8vh,22px);">
+        <div class="sc-label">Year 3</div>
+        <div style="font-size:clamp(22px,2.8vw,36px);font-weight:900;color:var(--red);font-family:'JetBrains Mono',monospace;">$24M+</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);color:var(--z500);margin-top:4px;">250+ Schools · ~70% D1 penetration</div>
+      </div>
+      <div class="stat-card" style="flex:1;text-align:center;padding:clamp(14px,1.8vh,22px);">
+        <div class="sc-label">Category Leader</div>
+        <div style="font-size:clamp(22px,2.8vw,36px);font-weight:900;color:#22C55E;font-family:'JetBrains Mono',monospace;">$61M+</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);color:var(--z500);margin-top:4px;">Full-stack monetization ceiling</div>
+      </div>
+    </div>
+    <p class="d center mt-12" style="font-size:clamp(11px,1vw,14px);">Break-even 18–24 months · 365 D1 programs addressable · Blended ACV ~$75K</p>
   </div>
 
   <!-- 25 COMPETITIVE -->
