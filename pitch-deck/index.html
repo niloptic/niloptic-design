@@ -309,13 +309,13 @@
 
     /* ── COMP TABLE ── */
     .ctable { width:100%; border-collapse:collapse; }
-    .ctable th, .ctable td { padding:clamp(10px,1.4vh,16px) clamp(12px,1.2vw,20px); border-bottom:1px solid var(--z800); text-align:center; font-size:clamp(13px,1.2vw,17px); }
-    .ctable th { font-size:clamp(11px,1vw,14px); font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--z500); }
-    .ctable td:first-child, .ctable th:first-child { text-align:left; color:var(--z300); }
+    .ctable th, .ctable td { padding:clamp(12px,1.8vh,20px) clamp(14px,1.4vw,22px); border-bottom:1px solid var(--z800); text-align:center; font-size:clamp(14px,1.3vw,18px); }
+    .ctable th { font-size:clamp(13px,1.2vw,17px); font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--z400); }
+    .ctable td:first-child, .ctable th:first-child { text-align:left; color:var(--z200); font-weight:600; }
     .ctable .hl { background:var(--red-50); }
-    .ctable .y { color:#22C55E; font-weight:700; font-size:clamp(15px,1.4vw,20px); }
-    .ctable .n { color:var(--z700); }
-    .ctable .p { color:#F59E0B; }
+    .ctable .y { color:#22C55E; font-weight:700; font-size:clamp(18px,1.6vw,24px); }
+    .ctable .n { color:var(--z600); font-size:clamp(16px,1.5vw,22px); }
+    .ctable .p { color:#F59E0B; font-weight:600; }
 
     /* ── PRICING ── */
     .pgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; flex:1; min-height:0; align-content:start; }
@@ -1855,18 +1855,18 @@
       </tbody>
     </table>
     </div>
-    <div style="display:flex;gap:10px;margin-top:14px;">
-      <div class="card f1" style="padding:12px 14px;border-left:2px solid var(--red);">
-        <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:2px;">Teamworks/INFLCR</div>
-        <div style="font-size:12px;color:var(--z500);">$411M raised. Compliance-only. No intelligence layer.</div>
+    <div style="display:flex;gap:12px;margin-top:clamp(14px,2vh,22px);flex:1;">
+      <div class="card f1" style="padding:clamp(16px,2vh,24px) clamp(16px,1.5vw,22px);border-left:3px solid var(--red);display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:clamp(15px,1.4vw,20px);font-weight:700;color:var(--red);margin-bottom:4px;">Teamworks/INFLCR</div>
+        <div style="font-size:clamp(14px,1.3vw,18px);color:var(--z400);line-height:1.4;">$411M raised. Compliance-only. No intelligence layer.</div>
       </div>
-      <div class="card f1" style="padding:12px 14px;border-left:2px solid var(--z600);">
-        <div style="font-size:12px;font-weight:700;color:var(--z400);margin-bottom:2px;">Opendorse</div>
-        <div style="font-size:12px;color:var(--z500);">$53M raised. Marketplace model. No analytics.</div>
+      <div class="card f1" style="padding:clamp(16px,2vh,24px) clamp(16px,1.5vw,22px);border-left:3px solid var(--z600);display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:clamp(15px,1.4vw,20px);font-weight:700;color:var(--z300);margin-bottom:4px;">Opendorse</div>
+        <div style="font-size:clamp(14px,1.3vw,18px);color:var(--z400);line-height:1.4;">$53M raised. Marketplace model. No analytics.</div>
       </div>
-      <div class="card f1" style="padding:12px 14px;border-left:2px solid var(--z600);">
-        <div style="font-size:12px;font-weight:700;color:var(--z400);margin-bottom:2px;">On3</div>
-        <div style="font-size:12px;color:var(--z500);">Editorial rankings. Media model. Not SaaS.</div>
+      <div class="card f1" style="padding:clamp(16px,2vh,24px) clamp(16px,1.5vw,22px);border-left:3px solid var(--z600);display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:clamp(15px,1.4vw,20px);font-weight:700;color:var(--z300);margin-bottom:4px;">On3</div>
+        <div style="font-size:clamp(14px,1.3vw,18px);color:var(--z400);line-height:1.4;">Editorial rankings. Media model. Not SaaS.</div>
       </div>
     </div>
   </div>
